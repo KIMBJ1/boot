@@ -21,6 +21,7 @@ public class TradeController {
 		return instance;
 	}
 
+	// 물건 하나 가져오기
 	public void getItem(String itemName) {
 		try {
 			EndView.itemView(service.getItemName(itemName));
@@ -30,16 +31,12 @@ public class TradeController {
 		}
 	}
 
+	// 물건 전체 가져오기
 	public void getItemList() {
 		EndView.itemListView(service.getItemList());
 	}
 
-	/*
-	 * newItemInsert() : newItem을 itemList에 넣을지 말지 결정 1. newItem이 null이 아닌 경우 if문 실행
-	 * 2. service.newItemInsert() : void타입 동일한 물건 명이 존재하지 않아 insert된 경우 >
-	 * itemList.add(newItem); 동일한 물건 명이 존재한 경우 > ItemNameDuplicationExcpetion 실행 >
-	 * catch문
-	 */
+	// 물건 삽입
 	public void newItemInsert(Item newItem) {
 		if (newItem != null) {
 
@@ -57,21 +54,39 @@ public class TradeController {
 		}
 	}
 
-	// 조회수
+	// 실 사용자가 보는 물건 하나 가져오기
 	public void itemRead(String itemName) {
 		try {
-				service.itemRead(itemName);
-				EndView.itemView(service.getItemName(itemName));
+			service.itemRead(itemName);
+			EndView.itemView(service.getItemName(itemName));
 
-			} catch (ItemNotFoundException e) {
-				e.printStackTrace();
-				EndFailView.failView(e.getMessage());
-			}
-
+		} catch (ItemNotFoundException e) {
+			e.printStackTrace();
+			EndFailView.failView(e.getMessage());
 		}
-	
-	
-	
+
+	}
+
+	// 갱신
+	public void itemTradeUpdate(String name, String nickname, int newpw, int newprice) {
+		if (name != null && nickname != null && newpw != 0) {
+			boolean result = service.itemTradeUpdate(name, nickname, newpw, newprice);
+
+			if (result) {
+				try {
+					EndView.itemView(service.getItemTrade(name));
+				} catch (ItemNotFoundException e) {
+					e.printStackTrace();
+					EndFailView.failView("갱신 후 검색 실패");
+				}
+			} else {
+				EndFailView.failView("존재하지 않는 수정 시도");
+			}
+		} else {
+			EndFailView.failView("유효하지 않은 데이터임");
+		}
+	}
+
 	// 삭제
 	public void itemDelete(String name, int pw) {
 		if (name != null && pw != 0) {
@@ -107,4 +122,5 @@ public class TradeController {
 			EndFailView.failView("원하는 물건과 찾는 물건의 정보가 제대로 입력되지 않았습니다.");
 		}
 	}
+
 }
