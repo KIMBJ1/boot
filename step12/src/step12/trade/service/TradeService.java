@@ -64,7 +64,7 @@ public class TradeService {
 				return i;
 			}
 		}
-		throw new ItemNotFoundException("zxcv");
+		throw new ItemNotFoundException("찾으려는 item 존재하지 않음");
 	}
 
 	public boolean itemTradeUpdate(String name, String nickname, int newpw, int newprice) {
