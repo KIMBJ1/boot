@@ -4,7 +4,6 @@ import step12.trade.dto.User;
 public class Item {
 	private String name;
 	private int price;
-	private String seller;
 	private int viewCnt;
 	private User user;
 	
@@ -30,12 +29,6 @@ public class Item {
 	}
 	public void setPrice(int price) {
 		this.price = price;
-	}
-	public String getSeller() {
-		return seller;
-	}
-	public void setSeller(String seller) {
-		this.seller = seller;
 	}
 	public int getViewCnt() {
 		return viewCnt;

@@ -34,23 +34,25 @@ public class StartView {
 		
 		System.out.println("*** 04. 새로운 item 등록 ***");
 		controller.newItemInsert(new Item("가방122",1000,new User("김빵빵",55)));
-//		controller.newItemInsert(new Item("가방",1000,"판매자1"));
 
 		
 		System.out.println("*** 05. 가격 update ***");
-		controller.itemPriceUpdate("태블릿", 11 , 250000);
 		
+	
 		System.out.println("*** 06. 물건 이름 update ***");
-		// 어디가 잘못됐는지 모르겠ㅇ어 ㅠㅠ
-		controller.itemNameUpdate("가방","김진주","핸드폰");
+		
+		
 		
 		System.out.println("*** 07. item 정보 read ***");
-		controller.itemRead("향수");
+		
 		
 		System.out.println("*** 08. item 정보 삭제 ***");
-		controller.itemDelete("향수", "향수");
+		controller.itemDelete("향수",44);
 		controller.getItemList();
 		
+		System.out.println("*** 09. item 거래 ***");
+		controller.itemTrade("의자", "의자");
+		controller.getItemList();
 	}
 
 }

@@ -1,4 +1,4 @@
-package step12.exception;
+package step12.trade.exception;
 
 public class ItemNameDuplicationException extends Exception {
 	
