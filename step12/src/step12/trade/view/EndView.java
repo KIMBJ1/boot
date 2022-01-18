@@ -36,6 +36,12 @@ public class EndView {
 		}
 	}
 
-
-	
+	public static void itemView(String itemName) {
+		
+		if (itemName != null) {
+			System.out.println(itemName);
+		} else {
+			System.out.println("해당 제품은 존재하지 않습니다.");
+		}
+	}
 }

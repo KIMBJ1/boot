@@ -36,7 +36,6 @@ public class TradeService {
 	}
 	
 	
-	
 	// 새로운 물건 등록 : 동일한 item명이 있는지 확인 후, 없으면 Insert
 	public void newItemInsert(Item newItem) throws ItemNameDuplicationException{
 		for(Item item : itemList) {
@@ -47,6 +46,17 @@ public class TradeService {
 		itemList.add(newItem);
 	}
 
+	
+	//조회수
+	public Item itemRead(String itemRead) throws ItemNotFoundException {
+		for (Item i : itemList) {
+			if (i.getName().equals(itemRead)) {
+				i.addViewCnt();
+				return i;
+			}
+		}
+		throw new ItemNotFoundException("제대로된 item명을 입력하세요.");
+	}
 	
 	//물건 삭제
 	public void itemDelete(String name, int pw) throws ItemDeleteErrorException{
@@ -83,4 +93,5 @@ public class TradeService {
 			throw new ItemTradeErrorException("(거래실패)판매중인 물건 중 고객님께서 찾는 물건은 없습니다.");
 		}
 	}
+
 }
