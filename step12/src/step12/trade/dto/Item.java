@@ -46,6 +46,7 @@ public class Item {
 	public int getUserPw(User user) {
 		return user.getPw();
 	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

@@ -57,7 +57,21 @@ public class TradeController {
 		}
 	}
 
+	// 조회수
+	public void itemRead(String itemName) {
+		try {
+				service.itemRead(itemName);
+				EndView.itemView(service.getItemName(itemName));
 
+			} catch (ItemNotFoundException e) {
+				e.printStackTrace();
+				EndFailView.failView(e.getMessage());
+			}
+
+		}
+	
+	
+	
 	// 삭제
 	public void itemDelete(String name, int pw) {
 		if (name != null && pw != 0) {

@@ -44,7 +44,9 @@ public class StartView {
 		
 		
 		System.out.println("*** 07. item 정보 read ***");
-		
+		controller.itemRead("의자");
+		controller.itemRead("의자");
+		controller.itemRead("의자");
 		
 		System.out.println("*** 08. item 정보 삭제 ***");
 		controller.itemDelete("향수",44);
@@ -53,6 +55,7 @@ public class StartView {
 		System.out.println("*** 09. item 거래 ***");
 		controller.itemTrade("의자", "의자");
 		controller.getItemList();
+
 	}
 
 }
