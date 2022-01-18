@@ -2,9 +2,11 @@ package step12.trade.service;
 
 import java.util.ArrayList;
 
-import step12.exception.ItemNameDuplicationException;
-import step12.exception.ItemNotFoundExcpetion;
 import step12.trade.dto.Item;
+import step12.trade.exception.ItemDeleteErrorException;
+import step12.trade.exception.ItemNameDuplicationException;
+import step12.trade.exception.ItemNotFoundException;
+import step12.trade.exception.ItemTradeErrorException;
 
 public class TradeService {
 	
@@ -18,19 +20,19 @@ public class TradeService {
 		return instance;
 	}
 	
-	// getItemList() = 모든 itemList 
-	public ArrayList<Item> getItemList(){
+	//모든 Item 검색
+	public ArrayList<Item> getItemList() {
 		return itemList;
 	}
 	
-	// getItem(String item) = 입력한 item에 해당하는 Item 객체 출력
-	public Item getItem(String itemName) throws ItemNotFoundExcpetion{
-		for(Item item : itemList) {
-			if(item.getName().equals(itemName)) {
-				return item;
+	//Item 이름으로 검색
+	public Item getItemName(String itemName) throws ItemNotFoundException {
+		for (Item e : itemList) {
+			if (e.getName().equals(itemName)) {
+				return e;
 			}
 		}
-		throw new ItemNotFoundExcpetion("입력하신 물건 이름이 DB에 없습니다");
+		throw new ItemNotFoundException("해당 상품은 존재하지 않습니다.");
 	}
 	
 	
@@ -44,59 +46,41 @@ public class TradeService {
 		}
 		itemList.add(newItem);
 	}
+
 	
-	// 등록되어있는 물건 수정 (물건이름, 판매자 이름)으로 검색 -> 가격 수정
-	public boolean itemPriceUpdate(String itemName, int pw, int newPrice) throws ItemNotFoundExcpetion{
-		for(Item item : itemList) {
-			
-			if( item.getName().equals(itemName) && item.getUser().getPw() == pw) {
-			// itemList에 있는 item - 물건 이름, 판매자 이름이 입력받은 itemName, seller와 동일하면 실행되는 문장
-				item.setPrice(newPrice);
-				return true;
-			}
-		}
-		// itemList에 있는 item - 물건 이름이 존재하지 않는 경우 > 바로 if문 false
-		throw new ItemNotFoundExcpetion("입력하신 item정보가 없습니다");
-	}
-	
-	// 등록되어있는 물건 수정 (물건이름, 판매자 이름)으로 검색 -> 물건 이름 수정
-	public void itemNameUpdate(String itemName, String seller, String newName) throws ItemNotFoundExcpetion{
-		for(Item item : itemList) {
-			if(item.getName().equals(itemName) && item.getSeller().equals(seller)) {
-			// itemList에 있는 item - 물건 이름, 판매자 이름이 입력받은 itemName, seller와 동일하면 실행되는 문장
-				item.setName(newName);
+	//물건 삭제
+	public void itemDelete(String name, int pw) throws ItemDeleteErrorException{
+		Item item = null;
+		int cnt = itemList.size();
+		boolean flag = false;
+		
+		for(int i = 0;i<cnt;i++) {
+			item = itemList.get(i);
+			if(item.getName().equals(name) ) {
+				if(item.getUser().getPw()==pw) {
+					itemList.remove(i);
+					flag = true;
+				}
+				else {
+					throw new ItemDeleteErrorException("이용자의 비밀번호가 일치 하지 않아 삭제가 불가합니다.");
+				}
 				break;
 			}
+
 		}
-		// itemList에 있는 item - 물건 이름이 존재하지 않는 경우 > 바로 if문 false
-		throw new ItemNotFoundExcpetion("입력하신 item정보가 없습니다");
+		if(!flag) {
+			throw new ItemDeleteErrorException("거래하려는 물건이 존재하지 않습니다.");
+		}
 	}
 	
-	// itemRead() : 입력받은 itemName이 itemList 내에 있는지 확인 > 있으면 객체 반환, 없으면 예외 처리
-	public Item itemRead(String itemName) throws ItemNotFoundExcpetion {
-		for(Item item : itemList) {
-			if(item.getName().equals(itemName)) {
-				item.addViewCnt();
-				return item;
-			}
+	//물건 거래
+	public void itemTrade(String wantItem, String name) throws ItemTradeErrorException, ItemDeleteErrorException, ItemNotFoundException {
+		if(wantItem.equals(name)) {
+			int pw = getItemName(name).getUser().getPw();
+			itemDelete(name,pw);
 		}
-		throw new ItemNotFoundExcpetion("item 이름을 정확하게 입력해주세요");
-	}
-	
-	// itemDelete() : 구매자가 원하는 물건 이름 = 판매하는 물건 이름 >> 구매로 간주, itemList에서 삭제
-	//
-	public boolean itemDelete(String userWantItem, String buyingItemName) throws ItemNotFoundExcpetion{
-		for(Item item : itemList) {
-			if(item.getName().equals(buyingItemName) && item.getName().equals(userWantItem)) {
-				itemList.remove(item);
-				return true;
-			}
+		else {
+			throw new ItemTradeErrorException("(거래실패)판매중인 물건 중 고객님께서 찾는 물건은 없습니다.");
 		}
-		throw new ItemNotFoundExcpetion("구매하고자 하는 물건 이름을 정확하게 입력하세요.");
 	}
-	
-	
-	
-	
-	
 }
