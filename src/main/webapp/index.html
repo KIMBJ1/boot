@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>노래 프로젝트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+</head>
+  <style>
+  body { color:black; }
+            body{
+                background-image:url('https://images.unsplash.com/photo-1581985283743-abc20b6d8993?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+                background-repeat:repeat-x;
+            }
+            
+   * {font-family: 'Gowun Dodum', sans-serif;}
+            html,body{
+  height:100%;
+}
+
+            
+        </style>
+
+<body>
+<br><br><br>
+
+<center>
+<h3><span style="text-shadow: -1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 0 #FFFFFF, 0 -1px #FFFFFF;">
+	노래 프로젝트의 정보 검색하기
+</span></h3>
+<hr><p>
+
+</center>
+
+<p>
+
+&nbsp;&nbsp;&nbsp;
+<span style="border-radius: 15px 15px 15px 0; border-bottom: 5px solid #F6CECE; padding: 0.5em; background:#F8E0E0 ;"><a href="song?command=songProjectAll">1.입력된 Song Project 모두 검색</span></a> 
+<br><br><br>
+&nbsp;&nbsp;&nbsp;
+<span style="border-radius: 15px 15px 15px 0; border-bottom: 5px solid #87CFFE ; padding: 0.5em; background : #CCEFFF ;"><a href="song?command=singerAll">2. 입력된 가수 모두 검색</span></a> 
+<br><br><br>
+&nbsp;&nbsp;&nbsp;
+<span style="border-radius: 15px 15px 15px 0; border-bottom: 5px solid #A189FB; padding: 0.5em; background:#E3DBFF ;"><a href="singerInsert.html">3. 가수 추가 등록</span></a>
+	<br><br>
+	
+	<!-- 가수 검색하기  -->
+	<form action="song?command=singer" method="post" >
+	&nbsp;&nbsp;&nbsp;<span style="text-shadow: -1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 0 #FFFFFF, 0 -1px #FFFFFF;">
+	4. 가수 ID : </span><input type="text" name="singer_id"><input type="submit" value="검색">
+	</form>
+	<p>
+	<hr>
+	
+	<iframe width="400" height="200" src="https://www.youtube.com/embed/0-q1KafFCLU?rel=0&amp;autoplay=1&mute=1&amp;loop=1;playlist=0-q1KafFCLU" frameborder="0"></iframe>
+	
+</body>
+</html>
