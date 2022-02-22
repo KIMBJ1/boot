@@ -11,3 +11,5 @@
 + 가수 추가 등록
 + 가수 ID로 검색
 + page 꾸미기
+  1. background image
+  2. 유튜브 자동 재생
