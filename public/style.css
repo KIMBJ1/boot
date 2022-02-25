@@ -1,0 +1,293 @@
+/* reset.css */
+
+html, body {
+    box-sizing: border-box;
+    font-family: 'Akaya Telivigala', 'Fuzzy Bubbles', 'Nanum Pen Script', 'sans-serif', cursive;
+    font-weight: 700;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+}
+
+a,
+a:link,
+a:visited,
+a:active,
+a:hover{
+    text-decoration: none;
+    color: #212529;
+}
+
+textarea {
+    border: none;
+    resize: none;
+    border: 2px dashed #fb97ce;
+}
+
+/* General */
+i {
+    color: #6c757d;
+}
+
+body {
+    height: 100vh;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100%;
+}
+
+header {
+    height: 20vh;
+}
+
+section {
+    flex-grow: 1;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+header,
+section,
+footer {
+    flex-shrink: 0;
+}
+
+/* hr {} */
+hr {
+    margin-top: 0;
+}
+
+
+/* Header */
+.Header {
+    border: 2px dashed #3068f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 30px;
+    padding: 10px;
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+.Header__main {
+    display: flex;
+    align-items: center;
+    border: 2px dashed #dd3333;
+    font-family: 'Akaya Telivigala', 'Fuzzy Bubbles', 'Nanum Pen Script', cursive;
+}
+
+.Header__main__menu {
+    display: flex;
+}
+
+.Header__main__menu li {
+    margin: 5px;
+    font-size: 1rem;
+}
+
+.Header__sub {
+    display: flex;
+}
+
+.Header__sub__icons {
+    display: flex;
+    align-items: center;
+    border: 2px dashed #8224e3;
+}
+
+.Header__sub__icon {
+    margin: 10px;
+}
+.Header__sub__profile {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    border: 2px dashed #11d922
+}
+
+.Header__sub__profile__username {
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+
+/* Dynamic color */
+.colorful-font,
+.Header__sub__profile__image i {
+    margin: 0;
+    color: #313131;
+    font-weight: bold;
+    -webkit-animation: colorchange 10s infinite alternate;
+    animation: colorchange 10s infinite alternate;
+}
+
+@-webkit-keyframes colorchange {
+    0% {
+        color: blue;
+    }
+
+    10% {
+        color: #8e44ad;
+    }
+
+    20% {
+        color: #1abc9c;
+    }
+
+    30% {
+        color: #d35400;
+    }
+
+    40% {
+        color: blue;
+    }
+
+    50% {
+        color: #34495e;
+    }
+
+    60% {
+        color: blue;
+    }
+
+    70% {
+        color: #2980b9;
+    }
+    80% {
+        color: #f1c40f;
+    }
+
+    90% {
+        color: #2980b9;
+    }
+
+    100% {
+        color: pink;
+    }
+}
+
+@keyframes colorchange {
+    0% {
+        color: blue;
+    }
+
+    10% {
+        color: #8e44ad;
+    }
+
+    20% {
+        color: #1abc9c;
+    }
+
+    30% {
+        color: #d35400;
+    }
+
+    40% {
+        color: blue;
+    }
+
+    50% {
+        color: #34495e;
+    }
+
+    60% {
+        color: blue;
+    }
+
+    70% {
+        color: #2980b9;
+    }
+    80% {
+        color: #f1c40f;
+    }
+
+    90% {
+        color: #2980b9;
+    }
+
+    100% {
+        color: pink;
+    }
+}
+
+/* Card */
+.Card {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 40vh;
+    margin: 20px;
+    padding: 10px;
+    align-items: center;
+    border: 1px dashed #adb5db;
+
+}
+
+.Card:first-child {
+    border: 4px dashed #21fbf8;
+}
+
+.Card__header {
+    margin-top: 20px;
+}
+
+.Card__body {
+    /* border: 2px dashed #97dffb; */
+    height: 50%;
+    margin-top: 10px;
+    flex: 1 1 auto;
+}
+
+.Card__body__textarea {
+    /* border: 2px dashed #f623fa; */
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.Card__body__content {
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+}
+
+.Card__body__content:focus {
+    outline: 0.5px #f8f9fa;
+}
+
+/* Footer */
+.Footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.Footer__sns {
+    display: flex;
+}
+
+.Footer__sns li {
+    margin: 0 10px;
+}
+
+.Footer__menu {
+    display: flex;
+}
+
+.Footer__menu li {
+    margin: 0 10px;
+}
+
+/* Bootstrap */
+.form-select:focus {
+    border-color: #21dc6d;
+    box-shadow: 0 0 0 0.25rem rgb(33 220 109 / 25%);
+}

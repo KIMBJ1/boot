@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node nmt.js"
+    "start": "node server.js"
   },
   "author": "b1rac12",
   "license": "ISC",
