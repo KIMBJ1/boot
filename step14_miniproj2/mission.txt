@@ -1,0 +1,78 @@
+1. 전체 구조 이해하고 분석하기
+	- 미흡하고 찝찝한 구조 재정리 및 코드 개선하기
+	
+2. sql문장을 DB에 적용하기
+	- table 생성 
+		probonoDDL.sql
+		
+	- 존재하는 table에 데이터 저장
+		probonoDML.sql
+		
+3. ActivistDAO 클래스 완성하기
+
+4. DBUtil.java 에 db.properties & probonosql.properties 적용 재확인
+
+5. pattern 재학습
+	1. MVC
+	2. DAO
+	3. DTO[VO]
+	4. SingleTon 
+	...
+
+6. sql 문장도 properties 파일로 분리해 보기 
+	ActivistDAO.java에서 사용하는 sql 문장을
+	probonosql.properties 파일로 개발해서 적용하기
+
+
+7. 권장 사항
+	lombok 등 사용 권장
+
+
+
+
+8. maven project로 변환 후에 db driver도 반드시 pom.xml 설정 하셔서 활용
+
+	<dependencies>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.20</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
+		</dependency>
+	</dependencies>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

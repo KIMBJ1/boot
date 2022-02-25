@@ -1,0 +1,7 @@
+0120
+--------------------------------------------------------------------------------
+step12_newsyntax \ step01 \ StreamAPI2
+step10_reviewTest_s \ step02.probono.service \ TalentDonationProjectService
+step10_reviewTest_s \ step02.probono.service \ TalentDonationProjectController \ public void donationProjectDelete(String projectName)
+step10_reviewTest_s \ step02.probono.service \ TalentDonationProjectController \ EndView -> Optional API·Î º¯°æ
+--------------------------------------------------------------------------------

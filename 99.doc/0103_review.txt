@@ -1,0 +1,31 @@
+1.
+변수 / 생성자 / 메소드 / 참조(reference) 변수 / parameter, argument, 매개변수, 매개인자, 인수, 인자
+사용자 정의 함수 / 클래스 / package / import / .java 확장자 로 컴파일 / 컴파일된 파일을 실행하는 인터프리터(실행) / jdk / jre / jvm / api
+int / double / string / 사용자 정의 타입 / new / return / 돌려받는 값이 없으면 void
+
+2.
+jdk /bin/javac.exe - 컴파일
+	- 문법 오류 없이 컴파일 된 후에는
+		byte code 라는 class 파일(기계만 인식 가능한 클래스 생성)
+3.
+jdk /bin/java.exe - 인터프리터
+	.java가 아닌 .class 파일로 실행
+4.
+Test.java 개발 후
+	>javac Test.java 컴파일 성공하면
+		>Test.class 생성됨
+	>java Test
+	
+5. 문법
+	1. 변수
+		타입 변수명;
+		타입 변수명 = 값;
+	2. 생성자
+		클래스명([arguments]){
+			[logic]
+		}
+	3. 메소드
+		반환타입 메소드명([arguments]){
+			[logic]
+			[return 값']
+		}

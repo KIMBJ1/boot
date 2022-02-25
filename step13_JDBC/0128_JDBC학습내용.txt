@@ -1,0 +1,40 @@
+JDBC 학습 내용
+
+1. 개발 시 필수 단계
+	* 표준 API - JDBC
+		- db와 java 언어간 통신규약
+			- JDBC라는 프로토콜
+	1. db 실행중
+	2. driver 설치
+		조건 : 설치 가능하게 보유 -> java 실행 환경에 로딩
+		
+		oracle db 설치 후에 설치된 경로에서 ojdbc.jar 제공
+		path 등록해서 사용
+		
+		mysql은 sqs원격지에 생성 및 활용
+			- driver부터 로컬에 path 등록
+				-> 코드상에서 mysql url / id / pw 등으로 활용
+				
+	3. ip/id/pw 에 맞는 db 접속
+		- Connection API
+	4. sql 문장 실행
+		- 정상 접속 후에 sql 문장 실행 기능 객체 생성
+		- 메소드로 crud 실행
+		- Statement API & PreparedStatement API
+	5. sql 문장 실행 결과 활용
+		- select : result set
+			ResultSet executeQuery("select")
+				- boolean next()
+				- String getString("컬럼명" or 컬럼위치)
+				- int getInt()
+				- float getFloat()
+		- insert/update/delete(존재하는 table 갱신) : 숫자값 반환, 영향 받은 행 수(ex. 2행 변경)
+			int executeUpdate("insert/update/delete")
+	6. 접속 해제
+		- 자원 반환(close)
+
+2. 인터넷 자원 사용 규약
+	1. http : server와 client간의 통신 규약
+		end user : 사용
+		개발자 : http 통신 규약에 맞게 개발
+		http 제시 : www(w3)

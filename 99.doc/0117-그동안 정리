@@ -1,0 +1,41 @@
+그동안 정리
+
+1. 변수 / 생성자 / 메소드 / static{}
+2. access modifier
+	- private / default / protected / public
+		- class에 선언 : default / public
+		- 변수 / 생성자 / 메소드 : private / default / protected / public
+	- singleton design pattern
+		- 변수 / 생성자 / private
+		- 메소드 / public
+3. tool &nd lib
+	- eclipse / maven
+		- pom.xml
+		- proj. 생성 후에 maven
+	- cmd -win+r
+	- lombok
+		- 코드 간소화
+		- 에노테이션 기반
+			- 생성자 / get, set / toString
+		- builder pattern
+4. API &nd lib
+	- lombok
+	- junt(framework) - @Test
+	- log4j(framework) - log4.properties
+		- key=value
+5.pattern
+	- DTO(VO)
+		- Bean
+	- MVC
+		- Model / View / Controller
+		- java script
+			- react.js / vue.js / .... / jquery
+	- Singleton
+	
+	
+자바 기초 진도 오늘 마무리
+exception 반영 
+파일 입출력 
+프로젝트 - 1일(팀별 코드 리뷰, 발표)
+람다식 / stream api -> proj. 갱신
+sql

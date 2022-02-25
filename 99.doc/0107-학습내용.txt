@@ -1,0 +1,201 @@
+학습 내용
+
+1. java 프로그램 필수 학습 내용
+	1. 기초 문법
+		= 개발 및 호출
+		- package / import / class / 변수 / 생성자 / 메소드
+		- class 또는 method / stack / jeap
+		- 클래스간에 변수, 메소드 호출하는 것에 익숙해지기
+		- 좋은 구조 : pattern
+		- 클린코드
+			: 개발할때부터 좋은 코드로 개발하는 방식
+		- 리팩토링
+		 	: 만들어져 있는 것을 로직 변경없이 코드 개선
+		- 객체 활용에 대한 코드 이해
+		
+	2. 예외처리(exception handling)
+		- 실행 시 발생 가능한 경미한 에러가 다수 존재
+		- 경미한 에러를 코드로 사전에 미연 방지하는 기술
+	3. 상속, 다형성
+	4. java.util package에서 제공하는 자료(데이터) 활용 방식이 다양한 자료 구조 클래스들을 학습
+	
+2. 예외
+	1. 처리 가능한 경미한 에러
+	2. 필요성
+		- 절대 이슈가 생겨도 프로그램 실행을 멈춰서는 안된다
+		- 문제가 발생시 유연하게 처리하고 정상 실행 유지
+	3. 예외 처리 문법
+		- exception handling 문법
+		1단계 - try~catch
+			try{
+				실로직(단 문제가 생길수도 문제가 없을수도 있음)
+			}catch(발생된 예외 타입 변수명){
+				발생된 경우 처리하는 블록
+			}
+		2단계 - try~catch~finally
+			- try(`)~catch(1~*_~finally(0 or 1)
+			try{
+				실로직(단 문제가 생길수도 문제가 없을수도 있음)
+			}catch(발생된 예외 타입 변수명){
+				발생된 경우 처리하는 블록
+			}finally{
+				예외 발생 여부와 무관하게 무조건 실해오디는 블록
+			}
+		3단계
+			- API에서 제공되는 이부 메소드들처럼 사용자 정의 메소드 body에서도 상황에 따라
+			예외 객체 자체를 생성해서 호출한곳으로 처리를 위임
+			- new 예외객체 생성 / throws로 메소드 선언구에서 던짐
+			- Class.forName()처럼 예외 던지면 호출한 우리 코드에서 try~catch처리 한 것 처럼
+			사용자가 생성한 예외 객체도 호출한 코드에서 try~catch 처리
+		4단계
+			- Exception 클래스를 직접 개발
+			- 사용자 정의 예외 클래스 多
+			- Spring 등에도 엄청 많이 제공
+			- 가령 id 중복된 경우 Id중복예외.java라는 이름으로 예외 클래스 개발
+	4. 예외 종류
+		1. 컴파일 예외
+			- 예외 처리 문법 필수
+			- 미 처리시 컴파일 자체가 불가
+			ex) 로딩하고자 하는 byte code가 없을수도 있는 ClassNotFoundException
+		2. 실행 예외
+			- 컴파일 무조건 ok (저장 가능)
+			- 실행시 발생
+			- 부모 클래스 중에 java.lang.RuntimeException 존재
+			- 해결책
+				1. 값을 수정
+				2. try~catch로도 처리는 가능
+			ex) 배열의 범위에 어긋나는 로직은 배열의 index 표현 즉 실행 예외
+			ex) 0으로 나누기하면 생기는 ArithmeticException: / by zero
+
+3. 상속과 다형성
+	- 상속
+		- extends가 없는 클래스는 무조건 extends Object 코드 자동 적용
+		- 생성자 없는 클래스는 컴파일 시점에 기본 생성자 자동 생성
+		- println() 참조변수 출력시 자동으로 toString() 호출
+		- 
+		1. 조상(부모) class : 하위(자식) class 관계
+			- 상속시에 멤버변수와 메소드들은 하위 클래스에 상속
+			- 장점
+				복붙이 아니라 코드 자체를 상속 : 코드 자체를 공유 -> 부모를 고치면 자식에게 상속
+				- 개발 속도 향상, 기업 관점 비용 절감
+			- 참고
+				-class 내부 구성 요소
+				: 멤버변수, 생성자, 메소드, static{}
+				- 변수와 메소드만 상속 가능
+			- 단. 메소드 로직 수정(재정의, overriding, override)
+				- java.lang.Object root
+					- 보유 메소드는 11개
+					- 하위 클래스는 11개를 상속
+						- 단, toString()재정의 권장
+		2. 상속 문법
+			: class 자식클래스명 extends 부모클래스명{
+				상속받는 변수와 메소드
+					- 재정의
+					- jdk1.5부터 추가된 애노테이션
+						@Override
+							- 재정의 하는 메소드에 선언 권장
+							- 표기는 옵션
+				새롭게 선언하는 변수와 메소드
+			}
+		3. 자식객체 생성시
+			데이터를 공유(변수 상속)하는 부모 클래스 존재
+			변수를 상속받은 자식 클래스
+	
+			//? 변수가 사용 가능하게 메모리에 생성 = 객체 생성
+			Child 객체 생성시 상속받은 변수들도 메모리에 생성
+			Child 객체 생성 요청시 Parent 객체도 생성되어야 함
+	
+			Child c = new Child();
+			생성 순서 : Parent 객체 먼저 생성 or Child 객체 먼저 생성?
+	2. 다형성
+		1. 많은 타입의 형태를 보유할 수 있는 메커니즘
+		2. 전제조건
+			- 상속 관계상에서만 다형성 적용
+		ex)
+			int i = "2"; 불가
+			String s = 2; 불가
+			String s = new Person(); 불가(상속 관계가 아니어서 안됨)
+			
+			상속관계
+			*** 상위타입 변수 = 자식객체
+			Parent P = new 
+		3. 형변환
+			1. 필요성
+				- 코드의 재사용성 강화
+				- 상위타입의 변수는 절대 하위 타입의 멤버들 호출 불가
+				- API상에는 이미 재사용성을 고려해서 Object 타입을 parameter 또는 반환타입으로 무수히 많이 사용됨
+			2. 문법
+				- 다운캐스팅(명시적으로 코드로 형변환)
+					: 하위타입 변수 = (하위타입)상위타입변수;
+				- 업캐스팅(자동 형변환)
+					: 상위타입 변수 = 자식타입;
+		4. OX퀴즈
+			class A extends Object{}
+			class B extends A{}
+			class C extends B{}
+			class D extends A{} //B와 D는 연관성 없음
+			일때
+
+			Object o = new Object(); ------> O		A a = new Object(); ------> X
+			= new A(); ------> O					= new A(); ------> O
+			= new B(); ------> O					= new B(); ------> O
+			= new C(); ------> O					= new C(); ------> O
+			= new D(); ------> O					= new D(); ------> O
+			
+			B b = new Object(); ------> X			D d = new Object(); ------> X
+			= new A(); ------> X					= new A(); ------> X
+			= new B(); ------> O					= new B(); ------> X
+			= new C(); ------> O					= new C(); ------> X
+			= new D(); ------> X					= new D(); ------> O
+			
+			S.o.p(int / String / Child / A / B / ... 사용자 정의 모든 참조 다 가능)
+			API 개발자는 이 모든 타입을 어떻게 parameter로 허용?
+			- public void println(int v){}
+			- public void println(float v){}
+			- public void println(String v){}
+			- public void println(Object v){} : 최상위 타입 따라서 모든 참조 타입들 출력
+4. 키워드
+	1. this : 자신 객체를 참조하는 키워드
+		this. : 객체 내의 멤버들 호출
+		this([...]) : 동일한 키워드 but 다른 parameter 가 일치하는 생성자 호출 메소드
+	2. super : 부모를 의미하는 키워드
+		super. : 부모의 멤버들 호출
+			- super.메소드명([...]);
+				- 메소드 재정의로 간주
+		super([...]) : 부모 parameter가 생성자 호출 메소드
+		
+//Mission
+1. proj. 명
+	step06_OOP
+		step04.test package
+2. 개발 구조
+	1. java 코드
+		Person.java - 상위 클래스
+			변수 : name, age
+		Employee.java - Person 상속
+			변수 : dept(부서명 String)
+		Customer.java - Person 상속
+			변수 : grade(등급 String)
+		ShopAdmin.java
+			- main()
+			- 메소드
+				1. publicData()
+					- Person[] 배열에 고객 한 명 / 직원 한 명 저장
+					- 배열 반환
+				2. print(파라미터 알아서)
+					- 배열 받아서 고객 등급(grade) 출력
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
