@@ -1,0 +1,24 @@
+*{
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.disney{
+    font-size: 25px;
+    color: firebrick;
+}
+
+p{
+    border: dashed 2px;
+}
+
+h3{
+    color: green;
+}
+
+#sidebar{
+    color: blue;
+}
+
+#sidebar h3{
+    color: inherit;
+}

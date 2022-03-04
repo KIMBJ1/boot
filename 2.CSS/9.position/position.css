@@ -1,0 +1,45 @@
+*{
+font-family: 'Akaya Telivigala', 'Nanum Pen Script', 'Cedarville Cursive', 'Fuzzy Bubbles', cursive;
+}
+
+.boxes{
+    position: relative;
+    /* position: relative; 없으면 box3이 boxes 밖으로 나감*/
+
+    background-color: honeydew;
+    border: 1px solid hotpink;
+    margin-top: 25px;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: cornflowerblue;
+    border: 3px dashed firebrick;
+    font-size: 20px;
+    margin: 20px auto;
+}
+
+#box1{
+    position: static;
+}
+#box2{
+    background-color: palegreen;
+    position: relative; /*자기 자신의 위치 기준으로 이동 혼자서는 잘 안씀*/
+    top: 10px;
+    left: 20px;
+}
+#box3{
+    background-color: red;
+    position: absolute; /*부모 요소 boxes기준으로 이동 나머지 box가 자리를 채운다*/
+    top: 50px;
+    left: 20px;
+}
+#box4{
+    background-color: tomato;
+    /*스크롤 내려도 따라와*/
+    position: fixed;
+    top: 50px;
+    right: 40px;
+
+}

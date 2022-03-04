@@ -1,0 +1,16 @@
+*{
+font-family: 'Akaya Telivigala', 'Nanum Pen Script', 'Cedarville Cursive', 'Fuzzy Bubbles', cursive;
+box-sizing: border-box;
+}
+
+.box{
+    width: 300px;
+    border: 3px dashed slateblue;
+    background-color: skyblue;
+    font-size: 40px;
+    padding: 10px;
+    /* margin: 50px; */
+    margin-left: 250px;
+    /* margin: 20px 40px; 상하 기준*/
+    /* margin: 10px 2px 30px 40px; 시계방향 margin*/
+}

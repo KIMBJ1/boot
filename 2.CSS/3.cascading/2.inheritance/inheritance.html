@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="inheritance.css">
+    <title>CSS Inheritance</title>
+</head>
+
+<body>
+    <h1>CSS 상속</h1>
+    <h2>1. 상속되는 속성 : 주로 font 관련 속성들이 상속된 (font-style, colot, text-align...</h2>
+
+    <div class="disney"> 디즈니 div
+        <div class="mickey">미키마우스</div>
+        <div class="mini">미니마우스</div>
+        <div class="donald">도날드 덕</div>
+    </div>
+
+    <h2>2. 상속되지 않는 속성 (border)</h2>
+    <p>이 문단 내부에는 <u>강조된 텍스트가</u> 있음</p>
+
+    <h2>3. 강제 상속 inherit</h2>
+    <h3>color: green</h3>
+    <div id="sidebar">
+        <h3>color: green -> blue inherit;</h3>
+    </div>
+</body>
+
+</html>

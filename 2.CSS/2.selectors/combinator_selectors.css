@@ -1,0 +1,51 @@
+*{
+    font-family: 'Nanum Pen Script', cursive;
+
+}
+
+span{
+    color:seagreen;
+}
+
+/*자손 선택자*/
+.descenndent-selector p{
+    font-size: 25px;
+    color: sienna;
+}
+
+.nested-div p{
+    border: 3px dashed coral;
+}
+
+/* 자식 선택자 */
+.child-selector > p{
+    font-size: 30px;
+    color: steelblue;
+}
+
+.child-selector > .nested-div2{
+    font-size: 25px;
+    border: 2px dashed teal;
+}
+
+div + p{
+
+    font-size: 30px;
+    color: turquoise;
+}
+
+.adjacent-sibling-selector +p{
+    font-size: 35px;
+    color: deeppink;
+}
+
+/* 잉ㄹ반 형제(자매) 선택자 */
+.general-sibling-selector ~ p{
+    font-size: 30px;
+    color: blue;
+}
+
+div ~ p{
+    font-size: 10px;
+    /* color: magenta; */
+}

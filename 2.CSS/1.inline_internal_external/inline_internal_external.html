@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline_internal_external</title>
+
+    <!-- style tag는 head안에 넣는다.-->
+    <!-- Internal style-->
+    <style>
+        .internal{
+            color:deeppink;
+            font-size: 40px;
+        }
+    </style>
+
+    <!-- External style-->
+    <link rel="stylesheet" href="inline_internal_external.css">
+</head>
+<body>
+    <h1>CSS style CSS.(CSS Styling)</h1>
+
+    <hr color="orange"> <!-- horizon-->
+    <p style="color: teal; font-size: 30px;">Inline style CSS.</p>
+
+    <hr color="orange">
+    <!-- internal : 위에서 만든 .internal, . : style의 이름-->
+    <p class="internal">Internal style CSS.</p>
+    <p class="internal">Internal 또 적용 가능</p>
+    
+    <hr color="orange">
+    <p class="external">External style CSS.</p>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="event_basic.js"></script>
+    <title>Javascript event</title>
+</head>
+<body>
+    <h1>Javascript event</h1><hr>
+
+    <a href="https://developer.mozilla.org/ko/docs/Learn/JavaScript/Building_blocks/Events" target="black">event 입문</a><br>
+    <a href="https://developer.mozilla.org/ko/docs/Web/Events" target="black">event 참조</a>
+
+    <!-- event를 만드는 방식-->
+    <h3>EventHandler attribute way</h3>
+    <button onclick="display()">Click me!</button><br>
+    <script>
+        function display(){
+            console.log('button clicked');
+        }
+    </script>
+
+    <h3>EventHandler property way</h3>
+    <button id="btn-ev-prop">Click me!!</button><br> <!-- js 파일에서 내용 작성-->
+
+    <h3>addEventListener way</h3>
+    <button id="btn-add-ev-lsnr">Double Click!</button>
+    <button id="btn-add-ev-lsnr2">Double Click!!!</button>
+    <br><button id="btn-add-ev-lsnr3">Hover me!!!</button>
+    <br><button id="btn-add-ev-lsnr4">=> &nd callback</button>
+</body>
+</html>

@@ -1,0 +1,37 @@
+* readyState, onreadystatechange ?
+readystate - 현재의 요청 / 응답 단계를 나타냄
+readystate의 값이 바뀔 때마다 onreadystatechange 이벤트가 발생.
+ 
+0 - 초기화 전. open()를 호출하기 전.
+1 - 열림. open()를 호출했지만 send()는 호출하지 않은 상태
+2 - 보냄. send()를 호출했지만 응답은 받지 못한 상태
+3 - 수신 중. 응답 데이터 일부를 받음.
+4 - 완료. 응답 데이터를 모두 받음.
+
+
+* 서버의 응답 결과 확인
+responseText : 응답에 포함된 텍스트
+responseXML : 응답의 contents type이 'text/html' 이거나 'application/xml'인 경우
+status - 응답의 HTTP 상태(응답 성공 여부)
+statusText - HTTP 상태에 대한 설명
+
+
+
+* Http request / response header
+HTTP request / response에는 헤더 정보가 포함되는데,
+
+XMLHttpRequest로 요청을 보낼 때는 다음과 같은 헤더 정보가 포함.
+
+Accept - 브라우저가 처리 가능한 컨텐츠 타입.
+Accept-Charset - 브라우저가 표시 가능한 문자셋.
+Accept-Encoding - 브라우저가 처리 가능한 압축 인코딩.
+Accept-Language - 브라우저의 언어
+Connection - 브라우저와 서버의 연결 타입
+Cookie - 페이지에 설정된 쿠키
+Host - 요청을 보내는 페이지의 도메인
+Referer - 요청을 보내는 페이지의 URI
+User-Agent - 브라우저의 사용자 에이전트 문자열
+
+직접 요청 정보를 포함하기 위해서는 setRequestHeader(Header name, value)를 사용.
+추가하는 위치 : xHttpRequest.open()과 xHttpRequest.send() 사이에 작성.
+

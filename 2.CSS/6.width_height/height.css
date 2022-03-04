@@ -1,0 +1,22 @@
+*{
+font-family: 'Akaya Telivigala', 'Nanum Pen Script', 'Cedarville Cursive', 'Fuzzy Bubbles', cursive;
+box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+.height-default{
+    /*height auto;*/
+    border: 1px solid teal;
+}
+.height-px{
+    /* height 100vh; viewpor height */
+    height: 10vh;
+    border: 1px solid orange;
+}
+.height-pct{
+    height: 10%;
+    border: 2px solid blueviolet;
+}
