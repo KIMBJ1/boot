@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+
+    <title>CSS Specificity</title>
+
+    <link rel="stylesheet" href="specificity.css">
+</head>
+<body>
+    <h1>CSS 적용 범위(명시도 구체성 CSS Specificity)</h1>
+    <hr>
+    <p>Universal Selector *</p>
+
+    <p>Type or Tag selector</p>
+
+    <p class="class-selector">Class Selector</p>
+    
+    <p class="class-selector" id="id-selector">Id Selector</p>
+    
+    <p class="class-selector" id="id-selector" style="color: blueviolet;">Inline Style</p>
+</body>
+</html>

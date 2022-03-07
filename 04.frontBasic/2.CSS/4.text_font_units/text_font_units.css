@@ -1,0 +1,69 @@
+
+html{
+    font-size: 15px;
+}
+
+table, td, th{ 
+    border-collapse: collapse; /*table 테두리 한 줄*/
+    border: 1px solid black;
+    text-align: center;
+    border-spacing: 10px;
+    margin: 0 auto;
+}
+
+tr, td{
+    padding: 10px;
+}
+
+.tbl{
+    font-size: 50px;
+}
+
+.browser-color{
+    color: red;
+}
+
+.google-hex{
+    color: #a52a2a;
+    font-family: 'Nanum Pen Script', sans-serif;
+}
+
+.google-rgb{
+    color: rgb(0, 0, 255);
+    font-family: 'Akaya Telivigala', sans-serif;
+}
+
+.google-rgba{
+    color: rgb(0, 0, 255);
+    font-family: 'Cedarville Cursive', sans-serif;
+}
+
+.px-parent{
+    /* font-size: 16px; browser default px */
+    font-size: 20px;
+    font-family: Fuzzy Bubbles;
+}
+
+.px-child{
+    font-size: 40px
+}
+
+/*em 의 개념은 기준이 되는 값을 지정된 배수로 변환해 표현한 크기
+기준이 되는 값은 현재 스타일 지정 요소의 font-size 값*/
+.em-parent{
+    font-size: 2em;
+}
+.em-child{
+    font-size: 150%;
+}
+
+/*rem은 기준이 되는 값을 지정된 배수로 변환해 표현한 크기
+여기서 기준이 되는 값은 최상위 요소(보통은 html 태그)에서
+지정된 font-size 의 값 : 15px*/
+.rem-parent{
+    font-size: 2rem;
+}
+
+.rem-child{
+    font-size: 1.5rem;
+}

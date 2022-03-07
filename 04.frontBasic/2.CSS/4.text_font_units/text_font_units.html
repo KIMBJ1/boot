@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Cedarville+Cursive&family=Fuzzy+Bubbles&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="text_font_units.css">
+    <title>text_font_units</title>
+</head>
+
+<body>
+    <h1>CSS Text / Font-family / Units</h1>
+
+    <h2>Text / Font-family</h2>
+    <table>
+        <tr class="tbl">
+            <!--table row-->
+            <th>Text</th> <!-- table header-->
+            <th>Color</th>
+            <th>Font-family(style)</th>
+        </tr>
+        <tr class="browser-color">
+            <td>브라우저 기본 폰트 텍스트</td> <!-- table data-->
+            <td>red</td>
+            <td>Browser default</td>
+        </tr>
+        <tr class="google-hex">
+            <td>Google Web Font 텍스트</td>
+            <td>#a52a2a(brown hex color)</td>
+            <td>Nanum Pen Script</td>
+        </tr>
+        <tr class="google-rgb">
+            <td>Google Web Font 텍스트</td>
+            <td>RGB(0, 0, 255)</td>
+            <td>Akaya Telivigala</td>
+        </tr>
+        <tr class="google-rgba">
+            <td>Google Web Font 텍스트</td>
+            <td>RGBA(0, 0, 255, 0.4)</td>
+            <td>Cedarville Cursive</td>
+        </tr>
+    </table>
+
+    <h2>Units</h2>
+    <hr><br>
+
+    <div class="px-parent">
+        px-parent text
+        <div class="px-child">
+            px-child text
+        </div>
+    </div>
+
+    <br><hr>
+    <!-- em : Relative to parent element = %-->
+    <div class="em-parent">
+        em-parent text font-size: 2em (1em이 default)
+        <div class="em-child">em-child text : em-parent의 150%</div>
+    </div>
+
+    <br><hr>
+    
+    <!-- rem : Relative to root element, 루트에 지정된 폰트사이즈의 크기에 지정-->
+    1rem
+    <div class="rem-parent">
+        rem-parent text 2rem
+        <div class="rem-child">rem-child text 1.5rem</div>
+    </div>
+</body>
+
+</html>

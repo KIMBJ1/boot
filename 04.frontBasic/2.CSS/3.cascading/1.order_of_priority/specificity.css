@@ -1,0 +1,17 @@
+*{
+    font-family: 'Nanum Pen Script', cursive;
+    color: red;
+}
+
+p {
+    font-size: 30px;
+    color: orange;
+}
+
+.class-selector{
+    color: green;
+}
+
+#id-selector{
+    color: blue;
+}

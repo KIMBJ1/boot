@@ -1,0 +1,23 @@
+*{
+    font-family: 'Nanum Pen Script', cursive;
+
+}
+
+h2{
+    color:slateblue
+}
+
+.class-selector{
+    font-size: 30px;
+    /* border-style: dashed;
+    border-color: firebrick
+    border-width: 10px; */
+    border: 5px dashed firebrick;
+}
+
+#id-selector{
+    font-size: 30px;
+    font-style: italic;
+    color: forestgreen;
+    font-weight: 100;
+}

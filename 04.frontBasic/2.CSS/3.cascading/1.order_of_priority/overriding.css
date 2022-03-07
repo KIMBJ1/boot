@@ -1,0 +1,17 @@
+*{
+    font-family: 'Nanum Pen Script', cursive;
+
+}
+
+p {
+    font-size: 30px;
+    color: red;
+}
+
+p {
+    color: gold;
+}
+
+.internal-vs-external {
+background-color: yellowgreen;
+}

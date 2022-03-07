@@ -1,0 +1,15 @@
+*{
+font-family: 'Akaya Telivigala', 'Nanum Pen Script', 'Cedarville Cursive', 'Fuzzy Bubbles', cursive;
+}
+
+.width-default{
+    width: 100%;
+}
+
+.width-px{
+    width: 300px; /*border의 px까지 합쳐서 300*/
+}
+
+.width-pct{
+    width:50%
+}

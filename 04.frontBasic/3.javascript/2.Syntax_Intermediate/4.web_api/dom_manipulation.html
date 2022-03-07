@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript DOM</title>
+    <!-- defer : 페이지가 모두 로드된 후에 해당 외부 스크립트가 실행됨-->
+    <script defer src="dom_manipulation.js"></script>
+    <!-- <script>
+        console.log(document.querySelector('#main-title'));
+        console.log(document.getElementById('main-title'));
+    </script> -->
+</head>
+<body>
+    <header>
+        <h1 id="main-title">DOM(Document object model)</h1><hr>
+    </header>
+    
+    
+    
+    <main>
+        <p>HTML, XML 등을 조작하기 위한 API.</p>
+        <ul>
+            <li>Item1</li>
+            <li class="list-item">Item2</li>
+            <li class="list-item">Item3</li>
+        </ul>
+    </main>
+    <script>
+        console.log(document); // HTML 문서에 대한 기본 정보 출력
+        console.dir(document); // property까지 조회
+
+        console.log(window); //window 객체 내부에 document가 하나의 property로 존재
+        console.log(window.document === document);
+
+    </script>
+</body>
+</html>

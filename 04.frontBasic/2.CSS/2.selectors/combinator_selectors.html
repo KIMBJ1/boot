@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS combinator_selectors</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="combinator_selectors.css">
+
+</head>
+<body>
+    <h1>CSS Combinatiors Selectors</h1>
+    <hr color="orangered">
+    <hr color="orangered">
+
+    <h2>1. 자손 선택자(<span>'space key'</span>, Descendent selector)</h2>
+    <!--div.descendent-selector-->
+    <div class="descenndent-selector">
+        <p>Paragraph element1. 자손 선택자 적용</p>
+        <p>Paragraph element2. 자손 선택자 적용</p>
+        <div class="nested-div">
+            <p>중첩된 div 내부에 있는 Paragraph element3까지 적용</p>
+        </div>
+    </div>
+    <p>Paragraph element4. 자손 선택자 미적용</p>
+
+    <h2>2. 자식 선택자(<span>'>'</span>, Child selector)</h2>
+    <div class="child-selector">
+        <p>Paragraph element1. 자식 선택자 적용</p>
+        <p>Paragraph element2. 자식 선택자 적용</p>
+        <div class="nested-div2">
+            <p>중첩된 div 내부에 있는 Paragraph element3 미적용</p>
+        </div>
+        <p>Paragraph element4. 자식 선택자 적용</p>
+    </div>
+    <p>Paragraph element5. 자식 선택자 미적용</p>
+    <p>Paragraph element6. 자식 선택자 미적용</p>
+
+    <h2>3. 인접 형제(자매) 선택자(<span>'+'</span>, Adjacent sibling selector)</h2>
+    <div class="adjacent-sibling-selector">
+        <p>Paragraph element1.</p>
+        <div>
+            <p>Paragraph element2.</p>
+        </div>
+        <p>Paragraph element3.</p>
+        <p>Paragraph element4.</p>
+    </div>
+    <p>Paragraph element5.</p>
+
+    <h2>4. 일반 형제(자매) 선택자 (<span>'~'</span>, General sibling selector)</h2>
+    <div class="general-sibling-selector">
+        <div>
+            <p>Paragraph element1</p>
+        </div>
+
+        <p>Paragraph element2</p>
+    </div>
+
+    <p>Paragraph element3</p>
+
+</body>
+</html>
