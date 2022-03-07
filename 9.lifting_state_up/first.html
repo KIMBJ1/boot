@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>first</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+</head>
+
+<body>
+    <h1>first</h1>
+    <hr align="left" width="50%">
+
+    <div id="root"></div>
+    <script type="text/babel">
+
+        // state를 활용하기 위해 useState() hook 활용
+        const { useState } = React; // import { useState } from 'react';
+
+        // 온도를 입력할 수 있는 input element 보유, 그 값을 temperature라는 state에 저장
+        const Calculator = (props) => {
+
+            // state의 초기값(initial value)으로 temperature 를 property로 가지는 객체(object) 사용
+            // 현재 state = {temperature: ''}
+            const [state, setState] = useState({temperature: ''})
+
+            const temperature = state.temperature
+
+            const changeHandler = (event) => {
+                setState({temperature: event.target.value})
+                console.log(event.target.value);
+                console.log(state);
+            }
+
+
+            return (
+                <fieldset>
+                    <legend>섭씨 온도(celsius)를 입력하세요 : </legend>
+                    <input value={temperature} onChange={changeHandler} />
+                    <BoilingVerdict celsius={temperature}/>
+                </fieldset>
+            )
+        }
+
+        // 입력한 값이 끓는점 이상인지 확인, 결과값 분기 component
+        const BoilingVerdict = (props) => {
+            if (props.celsius >= 100) {
+                return <p>The water would boil.</p>;
+            }
+            return <p>The water would not boil.</p>;
+        }
+
+        ReactDOM.render(<Calculator />, document.getElementById('root'))
+
+
+    </script>
+</body>
+
+</html>

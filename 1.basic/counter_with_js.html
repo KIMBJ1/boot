@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter with js</title>
+</head>
+<body>
+    <div id="root"></div> <!-- 앞으로 작성할 react app은 이 div 내부에 렌더링됨 -->
+    <button class="btn">increase</button>
+    <div>다른 내용</div>
+
+    <script>
+        // vanilla JS
+        // const root = document.querySelector('#root');
+        // const button = document.querySelector('button');
+
+        // let count = 0;
+        // root.innerHTML = `<p>0</p>`;
+
+        // button.addEventListener('click', () => {
+        //     root.innerHTML = `<p>${++count}</p>`
+        // });
+
+        // 초기값
+        const component = {
+            count: 0,
+            updateElement() { // 함수 작성 축약형
+                return `<p>${this.count}</p>`;
+            },
+        };
+
+        // 브라우저를 다시 렌더링하는 함수
+        function render(component, element) {
+            element.innerHTML = component.updateElement();
+        };
+
+        console.log('초기 화면 rendering');
+        render(component, document.querySelector('#root'));
+
+        const button = document.querySelector('button')
+        button.addEventListener('click', () => {
+            // 특정 이벤트(button click)에 의해 component값의 상태(state)가 바뀌면 바뀐 상태값으로 화면을 다시 rendering(re-rendering)
+            component.count += 1;
+            console.log('component update rerendering');
+            render(component, document.querySelector('#root'));
+        });
+    </script>
+</body>
+</html>

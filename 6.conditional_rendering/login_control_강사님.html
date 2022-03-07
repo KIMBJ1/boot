@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login control 강사님</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+</head>
+
+<body>
+    <h1>Login control 강사님</h1>
+    <hr align="left" width="50%">
+
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        // 함수형 컴포넌트로 LoginControl이라는 컴포넌트 생성
+        // 현재 최상위 컴포넌트라서 const LoginControl = (props) props 필요 없음
+        const LoginControl = () => {
+            const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+            const loginButtonHandler = () => {
+                setIsLoggedIn(!isLoggedIn)
+            }
+
+            return (
+                <>
+                    <Greeting isLoggedIn={isLoggedIn}/>
+                    {isLoggedIn ? <LogoutButton onClick={loginButtonHandler}/> : <LoginButton onClick={loginButtonHandler}/>}
+                </>
+            )
+        };
+
+        // 인사 메시지를 처리하는 별도의 컴포넌트 생성
+        const Greeting = (props) => {
+            return props.isLoggedIn ? <UserGreeting /> : <GuestGreeting />
+        }
+        const UserGreeting = () => {
+            return <h1>Welcome back</h1>
+        }
+        const GuestGreeting = () => {
+            return <h1>plz Sign in</h1>
+        }
+
+        // props로 함수를 전달받아서, 그 함수들 호출해서  Login Logout 텍스트 및 Greeting 텍스트 벼경
+
+        const LoginButton = (props) => {
+            return <button onClick={props.onClick}>Login</button>
+        };
+        const LogoutButton = (props) => {
+            return <button onClick={props.onClick}>Logout</button>
+        };
+
+        ReactDOM.render(<LoginControl />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>

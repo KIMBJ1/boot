@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    
+    <title>counter with react</title>
+</head>
+<body>
+    <h1>counter with react</h1>
+    <div id="root"></div> <!-- 앞으로 작성할 react app은 이 div 내부에 렌더링됨 -->
+    <button class="btn">increase</button>
+
+    <script>
+        // console.log(React); // React : React의 최상위 API, React 라이브러리의 진입점
+        // 이전 상태와 마지막 가장 최근 스냅샷과의 차이를 비교해주고, 이 변경사항을 ReactDOM에게 전달
+
+        // console.log(ReactDOM); //ReactDOM: React로 생성한 component를 브라우저(Real DOM)에 전달하는 역할
+
+// 리뷰할 떄 주석 해제해보기
+
+        // const component = React.createElement(
+        //     'div', 
+        //     null, 
+        //     'div입니다01.'
+        // );
+        // console.log(component);
+        // ReactDOM.render(component, document.querySelector('#root'));
+
+        // const anotherComponent = React.createElement(
+        //     'div', 
+        //     null, 
+        //     'div입니다02.', 
+        //     React.createElement(
+        //         'p', 
+        //         null, 
+        //         'p입니다.'
+        //     )
+        // );
+        // console.log(anotherComponent);
+        // ReactDOM.render(anotherComponent, document.querySelector('#root'));
+
+// 여기까지
+
+        // custom component: 사용자 정의, 일반적으로 대문자로 시작
+        const Component = props => {
+            return React.createElement('h2', null, `${props.count}`);
+        }
+
+        // 초기 렌더링
+        ReactDOM.render(React.createElement(Component, { count : 0 }, null), document.querySelector('#root'));
+
+        let i = 0;
+
+        // 클릭 통해 값 증가하는 이벤트 발생에 따라 화면 rerendering
+        document.querySelector('button').addEventListener('click', () => {
+            console.log('re-rendering');
+            ReactDOM.render(React.createElement(Component, { count : ++i }, null), document.querySelector('#root'));
+        });
+        
+    </script>
+</body>
+</html>

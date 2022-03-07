@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login control</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+</head>
+
+<body>
+    <h1>Login control</h1>
+    <hr align="left" width="50%">
+
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        // 함수형 컴포넌트로 LoginControl이라는 컴포넌트 생성
+        const LoginControl = () => {
+            const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+            const UserGreeting = (props) => {
+                return <h1>Welcome  back!!</h1>; 
+            };
+
+            const GuestGreeting = (props) => {
+                return <h1>plz sign up!!</h1>;
+            };
+
+            const Greeting = (props) => {
+                console.log(props.isLoggedIn);
+                const isLoggedIn = props.isLoggedIn;
+            }
+
+            const clickHandler = () => {
+                setIsLoggedIn(!isLoggedIn);
+            }
+
+            return (
+                <>
+                    {isLoggedIn ? <UserGreeting /> : <GuestGreeting />}
+                    <button onClick={clickHandler}>{!isLoggedIn ? 'Login' : 'Logout'}</button>
+                </>
+            )
+        };
+
+        ReactDOM.render(<LoginControl />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>

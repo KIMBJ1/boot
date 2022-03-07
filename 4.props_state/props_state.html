@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>props state</title>
+
+    <!-- React &nd Babel CDN -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // // 1. props
+        // const Component = props => {
+        //     return (
+        //         <div>
+        //             <h1>It's a {props.value}</h1>
+        //         </div>
+        //     )
+        //     // It's a Function component
+        // };
+        // // 별도의 props가 없을때 defaultProps 지정
+        // Component.defaultProps = {
+        //     value: 'default value'
+        // }
+        // // ReactDOM.render(<Component />, document.querySelector('#root'))
+        // ReactDOM.render(<Component value="Function component" />, document.querySelector('#root'))
+
+        // //2. before state 안되는거 맞음ㅇㅇ
+        // let cnt = 0;
+
+        // function BeforeState() { // 하나의 컴포넌트 (함수형 component)
+        //     const clickHandler = () => { // click event 처리
+        //         console.log('button clicked');
+        //         cnt++;
+        //         console.log(cnt);
+        //     }
+
+        //     return (
+        //         <div>
+        //             <p>U clicked {cnt} times</p>
+        //             <button onClick={clickHandler}>Click me</button>
+        //         </div>
+
+        //     )
+        // }
+        // ReactDOM.render(<BeforeState />, document.querySelector('#root'))
+
+        //3. state
+        const { useState } = React; // https://ko.reactjs.org/docs/hooks-intro.html
+        function Example() {
+            console.log('rendered');
+            // cnt값 : 하나의 state, 이 state의 초기값 0으로 지정 -> useState(초기값 initialState)
+            // const [cnt, setCnt] = useState(initialState);
+            const [cnt, setCnt] = useState(0);
+                // console.log(cnt);
+                // console.log(setCnt); // 값 변경해주는 함수
+            const clickHandler = () => {
+                setCnt(cnt + 1) //setCnt 통해서 cnt의 state갑 변경하고 state 변경되면 rerenderin
+                // state 변경되면 react는 변경 감지하고 rerendering
+            };
+
+            return (
+                // <div>
+                //     <p>U clicked {cnt} times</p>
+                //     <button onClick={clickHandler}>Click me2</button>
+                // </div>
+                <div>
+                    <p>U clicked {cnt} times</p>
+                    <Button />
+                </div>
+            )
+        }
+
+        function Button() {
+            return <button>click meme</button>
+        }
+
+        ReactDOM.render(<Example />, document.querySelector('#root'))
+
+    </script>
+</body>
+
+</html>
