@@ -1,0 +1,63 @@
+학습내용
+
+1. web 구조에 맞게 개발
+	MVC
+	DAO
+	DTO
+	Singleton
+	Builder
+
+2. library
+	lombok
+	log4j
+	junit
+	...
+	
+3. web server
+	- tomcat : apache에서 제공
+		java 기반의 web servlet &nd jsp
+		
+================================================================================
+
+1. DAO
+	Model - 순수 자바로 개발
+		*.java
+		DTO, DAO, Service 로직 ...
+	Controller - Servlet
+		*.java
+		http 통신 규약에 맞게 개발
+		javax.servlet.http.HttpServlet 상속으로 개발 코드 간소화
+	View - html / jsp
+		*.html / *.jsp
+			html : java 코드 사용 불가
+			jsp : java 코드 사용 가능 / ArrayList에 저장된 데이터를 브라우저 화면에 출력시 jsp로만 가능
+		
+2. http
+	web상에서 server와 client의 통신 규약
+	w3c에서 제시한 스펙
+	web application들은 end user들과 사용하는 규약
+	모든 프로그램 언어들은 http 프로토콜 기반의 개발을 쉽게 할 수 있게 스펙 제시
+		- 개발자들은 스펙에 맞게 개발 (http 지원하는 API 제공)
+	
+================================================================================
+
+1. DAO 클래스 개발 방식
+	1 :	db 접속 설정 정보가 DAO 클래스의 개별 메소드에 구현
+	2 : DBUtil 클래스로 분리
+			static{} : driver로딩
+			Connection 객체 생성
+				url / id / pw
+	3 : DBUtil에서 설정 정보 분리
+		*** DBUtil.java. 변경
+		*참고* step07_API / step02.io / IOTest.java & my.properties
+		장점
+			설정 정보 변경시 properties 파일만 갱신 가능
+			자바 소스는 수정 불필요
+				- 소스 수정 -> 컴파일 -> 서버 재배포 과정 skip
+
+	
+	
+	
+	
+	
+	

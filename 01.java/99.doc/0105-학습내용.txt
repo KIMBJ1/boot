@@ -1,0 +1,203 @@
+1. */java 구현 가능한 모든 문법
+	package 선언구;
+	import 외부 패키지 사용하는 선언구;
+	
+	class class명{
+		멤버 변수
+			1. instance 변수
+				- 객체 생성후에만 사용 가능한 변수
+				- 생성되는 모든 객체가 개별 생성하는 변수
+				- 객체들만 저장 가능한 heap 메모리에 생성
+				- 참조변수명.멤버변수 로 호출
+			2. static 변수
+				- 객체 생성없이 사용 가능
+				- 생성되는 시점에 byte 코드가 메모리에 로딩시 자동 생성
+					- class 또는 method 영역이라는 메모리에 생성
+				- 생성되는 모든 객체가 공유하는 변수
+				- class명.변수명 / 참조변수명.변수 / 변수명 로 호출
+		생성자
+			모든 클래스에 하나 이상씩 존재
+			개발자가 미구현시 기본 생성자 자동 추가 (컴파일 시점에)
+			권장사항 - 필요에 의해서 객체 생성하게 되는 로직이 동반될 경ㅇ우 직접 구현 추천
+			용도 - 객체 생성시 호출되는 구성요소
+			new 생성자([값]) 로 호출
+		메소드
+			- 기능구현을 하는 구성요소
+			- class ㅐ네서만 구현 가능
+			- 용어 : 메소드 != 함수
+				class 내에서만 구현되는 기능 - 메소드
+					java는 메소드만 있음
+				class와 무관하게 독립적으로 구현되는 기능 - 함수
+					python &nd java script
+						- class내에 메소드 개발 가능
+						- 독립적으로 함수 개발 가능
+			- 일반 메소드
+				참조변수.메소드명([...]);
+			- static 메솓
+				class명.메소드명([...]) / 메소드명([...]);
+		static{
+			main 메소드도 실행 우선순위 보유
+			실행 시점은 byte code가 메모리에 로딩시 자동 실행
+			user들이 공유하는 자원 초기화 로직에 적합
+		}
+	}
+	
+2. 데이터 타입
+	1. 기본(내장)
+		형태 -	 문자형 	/ 논리형 / 정수형 / 실수형
+		기본값 - '|u0000 / false /  0   / 0.0
+		char / boolean / byte, short, long, int / float, double
+	2. 참조(객체, 클래스)
+		api 상에서 제공되는 클래스
+		개발자가 구현하는 모든 class
+		null 기본값
+	
+3. Q&A
+	class A{
+	int i; 선언
+	A(){} 생성자 구현
+	
+	void m(String s){} 구현
+	static void m2(){}
+	
+	p.s.v.main(){
+		A a = new A)_; 호출
+		a.i = 10; 대입, 초기화
+		a.m("asdf"); 호출
+		
+		A.m2();
+		m2();
+		}
+	}
+	
+4. 학습내용
+	1. 외부 library 사용
+		lombok
+			- 코드 다이어트 library
+			- 사용 전처리
+				1 단계 : https://projectlombok.org
+				2 단계 : lombok.jar 다운로드
+				3 단계 : 더블클릭 또는 명령어로 설치
+				 	- 설치시 필요 정보는 eclipse.exe 실행 파일 위치
+				 	- jar 파일 실행 명령어
+				 		lib 존재위치 >  java -jar lombok버전.jar
+				 4 단계 : 설치 확인
+				 	- eclipse 에 제대로 설치되었는지 확인
+				 	- eclipse.exe. 있는 폴더에 limbok.jar 생성 되었는지 확인
+	2. 다양한 tool 사용
+		1. maven
+			인터넷이 연결된 상태에서 외부 어딘가의 저장소에서 제공해주는 library를 로컬 시스템으로 자동 다운로드
+		2. eclipse에 기본으로 내장
+			- m2 라는 이름으로 설정
+		3. maven 사용하는 proj. 생성 방식
+			1. proj. 생성
+			2. maven 기능 사용 가능하게 proj.를 변환
+			3. 자동 생성되는 파일 및 구조 확인
+			4. 디운로드 받은 외부 librarary 정보 설정
+				- pom.xml 이라는 maven 설정 파일
+				- xml 은 tag라는 형식으로 구성된 정보용 파일
+					- 제시된 스펙에 맞게 내용물만 추가 및 삭제
+					- 스펙 어긋나면 maven 사용 불가
+			step02_mTest -> maven proj.로 변환 -> 변환된 프로젝트 구조 확인 -> pom.xml에 lombok 정보 설정
+		
+5. 용어
+	아카이브 file - 압축된 구조이나 실행파일
+	jar - java의 byte code로만 구성된 자바 실행 파일
+	war - java의 web byte code로만 구성된 자바 웹 실행 파일
+	
+6. maven을 활용한 다양한 환경 설정
+	1. lombok
+		- 코드량 감소해서 개발 가능한 library
+		- 개발 시간 단축, 유지보수 용이, 기업관점 비용 절감
+	2. log4j
+		- end user들의 사용 기록을 쉽게 기록할수 있는 lib
+		- 로그기록용 libraryx
+	3. junit
+		- 개발 하는 기능들을 실시간 확인 가능한 단위 테스트용 framework
+		- main() 메소드 불필요
+			- 웹서비스에는 main() 불필요
+			- main() 메소드는 서버 없이 실행시켜야 하는 자바 소스들이 있을때 주로 test시에 활용
+			- 현 추세 main() 말고 junit 쓰는게 실무형 test 방식
+		- 환경 세팅시 주의 사항
+		- maven 통해서 라이브러리 다운로드
+		- build path 추가
+	
+7. 실습 구조
+	1단계 : 하나의 소스로 학습
+	2단계 : 두개의 소스로 학습
+	3단계 : 주제
+		Customer - 고객 정보를 저장(save insert CREATE) 검색(search select READ) 수정(UPDATE) 삭제(DELETE)
+					- CRUD
+		이미 존재하는 모든 고객(3명) 정보 검색(출력)	
+		개별 고객 정보 - id / pw / grade / ...
+		설계
+			- 고객 정보 표현용 클래스
+				- 정보는 RDBMS(oracle...)에 저장
+			- 검색 기능을 요청 및 처리하는 클래스
+			- 화면 제공(브라우저)
+			- 요청한 정보를 화면에 출력(브라우저)
+		
+8. 프로그램 개발시 권장 구조 (정형화되니 구조 = pattern)
+	1. Data Transfer Object [DTO] pattern
+		- 여러 클래스 간에 주고 받는 데이터용 객체를 의미
+		- Value Object[VO] pattern
+	2. MVC pattern
+		- Model - 핵심 기능, business(biz), core
+		- View - 화면 담당 기능
+		- Controller - 요청 받고 해당 요청별 실제 biz 로직 실행, view 지정
+		
+9. 실습 구조
+	1. model.Customer.java
+		- DTO
+		- 데이터 표현용 클래스
+		- 멤버 변수 / 생성자 / getXxx/setXxx()
+		- 명명규칙
+			: CustomerDTO.java / CustomerVO.java / Customerjava / CustomerBean.java
+	2. contoller.Contoller.java
+		- 요청 수락 후에 핵심 로직 실행 후 화면처리 로직 지정(실행)
+	3. view.StartView.java
+		- 시작 화면 가정
+		- main() 보유
+		- 브라우저 화면이라 가정해서 client가 요청동작 시작이라고 가정
+			 : Controller의 고객 정보 요청으로 실습
+	4. view.EndView.java
+		- 결과값만 출력하는 기능
+	5. model.Model.java
+		- 실제 데이터를 db로부터 검색해서 DTO 객체 생성하고 Controller에게 응답(반환) 해주는 기능
+		- 차후에 Db와 실제 소통하는 클래스 로직으로 개발
+		
+	참고 : StartView &nd EndView 는 웹으로 업데이트 시에 브라우저에서 실행되는 코드로 변환 예정
+	
+	* 고려 사항
+	DTo를 Model에서 데이터 제공을 위해서 생성 - CustomerDTO 객체 생성 필수
+	Controlle는 Mdel의 getCustomer() 호출 - 
+		
+10. 연산식
+	1. = : 오른쪽 값을 왼쪽 변수에 대입하는 "대입 연산자"
+	2. == : 왼쪽 오른쪽 "동등 비교 연산자" 같을 경우 true
+	3. || : "or 연산자"
+			조건식 중 하나만 true여도 참으로 간주
+	4. && : "and 연산자"
+			조건식 모두 참이어야 true	
+	
+11. 타입에 따른 데이터 표현 표기
+	- String : ""
+	- char : ''
+	- 배열 : []
+	- float : 2.3F / 2.3f 등 f표현	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
