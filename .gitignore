@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# 내가 만든 거
+.vscode
