@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd. Celsius -> Fahrenheit</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+</head>
+
+<body>
+    <h1>Celsius Fahrenheit</h1>
+    <hr align="left" width="50%">
+
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const { useState } = React;
+
+        const scaleNames = {
+            c: 'celsius',
+            f: 'fahrenheit',
+        };
+
+        function toFahrenheit(celsius) {
+            return (celsius * 9 / 5) +32;
+        }
+
+        function toCelsius(fahrenheit) {
+            return (fahrenheit -32) * 5 / 9;
+        }
+
+        function tryConvert(temperature, convert) {
+            const input = parseFloat(temperature);
+
+            if (Number.isNaN(input)) {
+                return '';
+            }
+
+            const output = convert(input);
+            const rounded = Math.round(output * 1000) / 1000;
+            return rounded.toString();
+
+        }
+
+        const Calculator = (props) => {
+
+            const [state, setState] = useState({temperature: '', scale: ''})
+
+
+            const changeTemperatureHandler = (inputValue, scale) => {
+                setState({temperature: inputValue, scale: scale})
+            }
+
+            const temperature = state.temperature;
+            const scale = state.scale;
+
+            const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
+            const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
+
+            return (
+                <>
+                    <TemperatureInput scale='c' temperature={celsius} onTemperatureChange={changeTemperatureHandler} />
+                    <TemperatureInput scale='f' temperature={fahrenheit} onTemperatureChange={changeTemperatureHandler} />
+                    <BoilingVerdict celsius={celsius}/>
+
+                </>
+            )
+        }
+
+        const TemperatureInput = (props) => {
+
+            const inputChangeHandler = (event) => {
+                const inputValue = event.target.value;
+                const scale = props.scale;
+                props.onTemperatureChange(inputValue, scale);
+            }
+
+            return (
+                <fieldset>
+                    <legend>{scaleNames[props.scale]} 온도를 입력하세요 : </legend>
+                    <input value={props.temperature} onChange={inputChangeHandler} />
+                </fieldset>
+            )
+            
+        }
+
+        const BoilingVerdict = (props) => {
+            if (props.celsius >= 100) {
+                return <p>The water would boil.</p>;
+            }
+            return <p>The water would not boil.</p>;
+        }
+
+        ReactDOM.render(<Calculator />, document.getElementById('root'))
+
+    </script>
+</body>
+
+</html>

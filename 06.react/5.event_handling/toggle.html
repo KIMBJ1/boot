@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+</head>
+
+<body>
+    <h1>Toggle</h1>
+    <hr align="left" width="50%">
+
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const Toggle = () => {
+            const [state, setState] = useState({isToggleOn : true});
+            const clickHandler = (event) => {
+                setState(prevState => ({
+                    isToggleOn: !prevState.isToggleOn,
+                }));
+                console.log(state.isToggleOn);
+
+                document.getElementById('bulb').src = `pic_bulb${state.isToggleOn ? 'ON' : 'OFF'}.gif`;
+            }
+
+            return (
+                <div>
+                    <img id='bulb' src='pic_bulboff.gif' /><br /><br />
+                    <button onClick={clickHandler}>
+                        {state.isToggleOn ? '켜기' : '끄기'}
+                    </button>
+                </div>
+            );
+        }
+
+        ReactDOM.render(
+            <Toggle />,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+
+</html>

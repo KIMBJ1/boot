@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+</head>
+<body>
+    <h1>form</h1><hr align="left" width="50%" >
+
+    <div id="root"></div>
+    <script type="text/babel">
+        const Form = () => { // 함수형 component Form 작성
+            const submitHandler = (event) => { // submit event 처리할 handler 작성
+                // e.preventDefault();
+                event.preventDefault(); // form의 기본동작(reloading)을 제어하기 위한 코드
+                console.log('You clicked submit.');
+            }
+
+            return (
+                <form onSubmit={submitHandler}>
+                    <button type="submit">Submit</button>
+                </form>
+            )
+        }
+
+        ReactDOM.render(<Form />, document.getElementById('root'))
+    </script>
+</body>
+</html>

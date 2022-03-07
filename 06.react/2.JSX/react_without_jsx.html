@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <title>react without jsx</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <ul>
+        <h2>Things cats like</h2>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+
+    <script>
+        const Component = props => { // 코드의 가독성이 낮음
+            return React.createElement('div', null,
+                React.createElement('h2', null, 'Things cats like'),
+                React.createElement('ul', null,
+                    React.createElement('li', null, 'Coffee'),
+                    React.createElement('li', null, 'Tea'),
+                    React.createElement('li', null, 'Milk')))
+        };
+
+        ReactDOM.render(React.createElement(Component, null, null), document.querySelector('#root'));
+    </script>
+
+</body>
+
+</html>
