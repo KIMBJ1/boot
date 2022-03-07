@@ -1,0 +1,28 @@
+{
+"DEPT": [
+	{
+		"DEPTNO" : 10,
+		"DNAME" : "ACCOUNTING",
+		"LOC" : "NEW YORK"
+	},
+	{
+		"DEPTNO" : 20,
+		"DNAME" : "RESEARCH",
+		"LOC" : "DALLAS"
+	},
+	{
+		"DEPTNO" : 30,
+		"DNAME" : "SALES",
+		"LOC" : "CHICAGO"
+	},
+	{
+		"DEPTNO" : 40,
+		"DNAME" : "OPERATIONS",
+		"LOC" : "BOSTON"
+	},
+	{
+		"DEPTNO" : 50,
+		"DNAME" : "인사과",
+		"LOC" : "영등포"
+	}
+]}
