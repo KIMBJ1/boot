@@ -14,3 +14,5 @@
   1. background image
   2. 유튜브 자동 재생
   3. 🚗🚓🚕
+
+![img](https://user-images.githubusercontent.com/57746855/158008336-a9e64ca1-11d6-4d5a-8801-9bce8042e9a6.gif)
